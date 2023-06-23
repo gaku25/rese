@@ -14,8 +14,13 @@
         <nav class="nav_content">
             <ul class="nav_list">
             <li class="nav_item"><a href="http://127.0.0.1:8000">Home</a></li>
-            <li class="nav_item"><a href="http://127.0.0.1:8000/register">Registretion</a></li>
-            <li class="nav_item"><a href="http://127.0.0.1:8000/login">Login</a></li>
+            @if (Auth::check())
+            <li class="nav_item"><a href="{{ route('logout') }}">Logout</a></li>
+            <li class="nav_item"><a href="{{ route('mypage') }}">Mypage</a></li>
+            @else
+            <li class="nav_item"><a href="http://127.0.0.1:8000/register">Registration</a></li>
+            <li class="nav_item"><a href="{{ route('login') }}">Login</a></li>
+            @endif
             </ul>
         </nav>
         <!-- ヘッダーロゴ -->
@@ -69,7 +74,7 @@
         <div class="card__text">
         <form action="{{ route('store.detail', ['id' => $store->id]) }}" method="get">
         <button class="card__cat" name="id" value="{{ $store->id }}">詳しく見る</button>
-        <a href="{{ route('favorites.toggle') }}" onclick="event.preventDefault(); toggleFavorite({{ $store->id }})">
+        <a href="{{ route('favorites.toggle', ['store_id' => $store->id]) }}" onclick="event.preventDefault(); toggleFavorite({{ $store->id }})">
         <img id="heart-{{ $store->id }}" class="card__heart{{ $store->isFavorite ? ' heart-active' : '' }}" src="{{ asset('storage/heart.png') }}" alt="いいね" style="float: right;"/>
         </a>
         </form>
@@ -84,14 +89,14 @@
     const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
     // お気に入り追加/削除のAJAXリクエストを送信
-    fetch("{{ route('favorites.toggle') }}", {
+    fetch("/favorites/toggle/" + storeId, {
         method: 'POST',
         headers: {
             'X-CSRF-TOKEN': token,
             'X-Requested-With': 'XMLHttpRequest',
-            'Content-Type': 'application/json', // 追加
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ store_id: storeId }), // 追加
+        body: JSON.stringify({ store_id: storeId }),
     })
     .then(response => response.json())
     .then(data => {
@@ -99,10 +104,10 @@
         console.log(data.message);
 
         // メッセージを表示するなどの追加処理を行う
-        if (data.message === 'Favorite added successfully.') {
+        if (data.isFavorite) {
             alert('お気に入りに追加しました。');
             document.getElementById('heart-' + storeId).classList.add('heart-active'); // ハートボタンのスタイルを変更
-        } else if (data.message === 'Favorite removed successfully.') {
+        } else {
             alert('お気に入りから削除しました。');
             document.getElementById('heart-' + storeId).classList.remove('heart-active'); // ハートボタンのスタイルを変更
         }

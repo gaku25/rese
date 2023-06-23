@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class AuthenticatedSessionController extends Controller
@@ -26,13 +27,24 @@ class AuthenticatedSessionController extends Controller
      * @param  \App\Http\Requests\Auth\LoginRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(LoginRequest $request)
+    public function store(Request $request)
     {
-        $request->authenticate();
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
-        $request->session()->regenerate();
+        $credentials = $request->only('email', 'password');
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('/'); // リダイレクト先を変更
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
     }
 
     /**

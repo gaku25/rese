@@ -14,8 +14,17 @@ class StoreController extends Controller
 {
     public function index()
     {
+        if (Auth::check()) {
         $user = Auth::user();
         $stores = Store::all();
+        // 各店舗のお気に入りフラグを設定する
+        foreach ($stores as $store) {
+            $store->isFavorite = $user->favorites->contains('store_id', $store->id);
+        }
+    } else {
+        $user = null;
+        $stores = Store::all();
+    }
         $areas = Area::all();
         $genres = Genre::all();
         $param = [
@@ -54,33 +63,22 @@ class StoreController extends Controller
 
     public function search(Request $request)
 {
-    // 入力された検索条件を取得
     $input_area = $request->input('area');
     $input_genre = $request->input('genre');
     $keyword = $request->input('keyword');
-
-    // 検索クエリを作成
     $query = Store::query();
-
-    if ($input_area) {
-        $query->where('area_id', $input_area);
-    }
-
-    if ($input_genre) {
-        $query->where('genre_id', $input_genre);
-    }
-
-    if ($keyword) {
-        $query->where('store', 'LIKE', "%$keyword%");
-    }
-
-    // 検索結果を取得
+        if ($input_area) {
+            $query->where('area_id', $input_area);
+        }
+        if ($input_genre) {
+            $query->where('genre_id', $input_genre);
+        }
+        if ($keyword) {
+            $query->where('store', 'LIKE', "%$keyword%");
+        }
     $stores = $query->get();
-
-    // 他の必要なデータを取得
     $areas = Area::all();
     $genres = Genre::all();
-
     $param = [
         'stores' => $stores,
         'areas' => $areas,
@@ -88,7 +86,6 @@ class StoreController extends Controller
         'input_area' => $input_area,
         'input_genre' => $input_genre,
     ];
-
     return view('index', $param);
 }
 

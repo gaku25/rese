@@ -1566,3 +1566,51 @@ select {
   cursor: pointer;
   margin: 0 25px 20px 0;
 }
+
+.select-icon_user {
+  position: relative;
+}
+
+.select-icon_user::before {
+  content: "";
+  position: absolute;
+  margin-top: 8px;
+  left: 30px;
+  background: url(../storage/user.png) no-repeat;
+  background-size: cover;
+  width: 23px;
+  height: 23px;
+  color: #ebebeb;
+}
+
+.select-icon_email {
+  position: relative;
+}
+
+.select-icon_email::before {
+  content: "";
+  position: absolute;
+  margin-top: 8px;
+  left: 30px;
+  background: url(../storage/email.png) no-repeat;
+  background-size: cover;
+  width: 23px;
+  height: 23px;
+  color: #ebebeb;
+}
+
+.select-icon_pass {
+  position: relative;
+}
+
+.select-icon_pass::before {
+  content: "";
+  position: absolute;
+  margin-top: 8px;
+  left: 30px;
+  background: url(../storage/password.png) no-repeat;
+  background-size: cover;
+  width: 23px;
+  height: 23px;
+  color: #ebebeb;
+}

@@ -168,14 +168,6 @@ a {
   margin: 30px 35px 30px 45px;
 }
 
-.practice__card {
-  width: 24%;
-  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
-  margin: 0px 10px 30px 10px;
-  border-radius: 5px;
-  background-color: #fff;
-}
-
 .detail__img img{
   width: 100%;
 }
@@ -379,4 +371,78 @@ a {
 
 .favorite-active {
   color: red;
+}
+
+.mypage{
+  margin:10px 65px 0 65px;
+  display: flex;
+}
+
+.mypage_register{
+  width: 50%;
+  padding-top: 50px;
+}
+
+.mypage_favorite{
+  width: 50%;
+}
+
+.mypage__user-logout{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.mypage_favorite-tetle{
+  padding-top: 23px;
+}
+
+/* マイページ */
+.mypage_register-page {
+  width: 80%;
+  height: 100%;
+  background-color: #3574fa;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  color: #fff;
+}
+
+.mypage_register-situation{
+  padding: 50px 0 0 110px;
+}
+
+.detail-table{
+  padding: 15px 0 0 50px;
+}
+
+.mypage_register-logo {
+  position: relative;
+}
+
+.mypage_register-logo::before {
+  content: "";
+  position: absolute;
+  margin-top: 50px;
+  left: 50px;
+  background: url(../../storage/time.png) no-repeat;
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+  color: #ebebeb;
+}
+
+.practice__card {
+  width: 24%;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  margin: 0px 10px 30px 10px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.favorite__card {
+  width: 40%;
+  height: 90%;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  margin: 0px 10px 30px 10px;
+  border-radius: 5px;
+  background-color: #fff;
 }

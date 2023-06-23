@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Favorite;
 
 class Store extends Model
 {
@@ -22,4 +23,8 @@ class Store extends Model
     public function valuation(){
         return $this->hasMany('App\Models\valuation');
     }
+
+    public function favorites(){
+    return $this->hasMany(Favorite::class, 'store_id');
+}
 }

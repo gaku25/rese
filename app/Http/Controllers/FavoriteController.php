@@ -15,58 +15,59 @@ class FavoriteController extends Controller
 {
     $user = Auth::user();
 
-    // すでにお気に入りに登録されているかを確認
-    $favorite = Favorite::where('user_id', $user->id)
-                        ->where('store_id', $request->store_id)
-                        ->first();
+    // 既にお気に入りに登録されているかチェック
+    $existingFavorite = Favorite::where('user_id', $user->id)
+        ->where('store_id', $request->store_id)
+        ->first();
 
-    if (!$favorite) {
-        // お気に入りに追加されていない場合のみ追加する
-        $favorite = Favorite::create([
-            'user_id' => $user->id,
-            'store_id' => $request->store_id,
-        ]);
-
-        return response()->json(['message' => 'Favorite added successfully.']);
+    if ($existingFavorite) {
+        // 既に登録されている場合は何もしない
+        return response()->json(['message' => 'Already added to favorites'], 200);
     }
 
-    return response()->json(['message' => 'Already added to favorites.']);
+    // 新しいお気に入りを作成
+    $favorite = Favorite::create([
+        'user_id' => $user->id,
+        'store_id' => $request->store_id,
+    ]);
+
+    return response()->json(['message' => 'Favorite added successfully', 'favorite' => $favorite], 201);
 }
 
-public function remove(Request $request)
+    public function remove(Request $request)
 {
     $user = Auth::user();
 
     // お気に入りから削除する
-    $favorite = Favorite::where('user_id', $user->id)
-                        ->where('store_id', $request->store_id)
-                        ->delete();
+    Favorite::where('user_id', $user->id)
+        ->where('store_id', $request->store_id)
+        ->delete();
 
-    return response()->json(['message' => 'Favorite removed successfully.']);
+    return response()->json(['message' => 'Favorite removed successfully'], 200);
 }
 
-    public function toggle(Request $request)
+    public function toggle(Request $request, $store_id)
 {
     $user = Auth::user();
 
-    // お気に入りが存在するかを確認
-    $favorite = Favorite::where('user_id', $user->id)
-                        ->where('store_id', $request->store_id)
-                        ->first();
+    // 既にお気に入りに登録されているかチェック
+    $existingFavorite = Favorite::where('user_id', $user->id)
+        ->where('store_id', $store_id)
+        ->first();
 
-    if (!$favorite) {
-        // お気に入りに追加されていない場合は追加する
+    if ($existingFavorite) {
+        // 既に登録されている場合は削除する
+        $existingFavorite->delete();
+        $isFavorite = false;
+    } else {
+        // まだ登録されていない場合は追加する
         Favorite::create([
             'user_id' => $user->id,
-            'store_id' => $request->store_id,
+            'store_id' => $store_id,
         ]);
-
-        return response()->json(['message' => 'Favorite added successfully.']);
-    } else {
-        // お気に入りに既に追加されている場合は削除する
-        $favorite->delete();
-
-        return response()->json(['message' => 'Favorite removed successfully.']);
+        $isFavorite = true;
     }
+
+    return response()->json(['isFavorite' => $isFavorite], 200);
 }
 }

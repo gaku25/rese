@@ -35,16 +35,18 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="get" action="/">
+        <form method="post" action="{{ route('login') }}">
             @csrf
 
             <!-- Email Address -->
             <div>
+                <span class="select-icon_email"></span>
                 <x-input id="email" class="block mt-1 w-full border-text" type="email" name="email" :value="old('email')" required autofocus placeholder="Email"/>
             </div>
 
             <!-- Password -->
             <div class="mt-4">
+                <span class="select-icon_pass"></span>
                 <x-input id="password" class="block mt-1 w-full border-text"
                                 type="password"
                                 name="password"

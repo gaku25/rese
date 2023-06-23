@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\Favorite;
 
 class User extends Authenticatable
 {
@@ -44,5 +46,9 @@ class User extends Authenticatable
 
     public function valuation(){
         return $this->hasMany('App\Models\valuation');
+    }
+
+    public function favorites(){
+    return $this->hasMany(Favorite::class, 'user_id');
     }
 }
