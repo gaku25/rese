@@ -49,10 +49,10 @@ class StoreController extends Controller
     return view('detail', $param);
     }
 
-    public function done(Request $request)
+    public function done($id)
     {
-    
-    return view('done');
+    $reserveManagement = ReserveManagement::findOrFail($id);
+    return view('done', compact('reserveManagement'));
     }
 
     public function thanks(Request $request)

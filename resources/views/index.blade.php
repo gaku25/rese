@@ -87,6 +87,7 @@
 <script>
     function toggleFavorite(storeId) {
     const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    const heartButton = document.getElementById('heart-' + storeId);
 
     // お気に入り追加/削除のAJAXリクエストを送信
     fetch("/favorites/toggle/" + storeId, {
@@ -103,14 +104,8 @@
         // レスポンスに応じた処理を実装
         console.log(data.message);
 
-        // メッセージを表示するなどの追加処理を行う
-        if (data.isFavorite) {
-            alert('お気に入りに追加しました。');
-            document.getElementById('heart-' + storeId).classList.add('heart-active'); // ハートボタンのスタイルを変更
-        } else {
-            alert('お気に入りから削除しました。');
-            document.getElementById('heart-' + storeId).classList.remove('heart-active'); // ハートボタンのスタイルを変更
-        }
+        // ハートボタンのスタイルを変更
+        heartButton.classList.toggle('heart-active', data.isFavorite);
     })
     .catch(error => {
         console.error('Error:', error);

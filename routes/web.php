@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MypageController;
+use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Middleware\FirstMiddleware;
 
@@ -25,8 +26,12 @@ Route::get('/', [StoreController::class, 'index']);
 Route::post('/', [StoreController::class, 'index']);
 Route::get('/detail/{id}', [StoreController::class, 'detail'])
     ->name('store.detail');
-Route::get('/done', [StoreController::class, 'done']);
-Route::get('/thanks', [StoreController::class, 'thanks']);
+Route::post('/done', [ReserveController::class, 'done'])->name('store.done');
+// Route::get('/reserve/done', [ReserveController::class, 'reserveDone'])
+//     ->name('reserve.done');
+Route::post('/done', [ReserveController::class, 'done'])->name('store.done');
+// Route::get('/done/{id}', [StoreController::class, 'done'])->name('store.done');
+
 Route::get('/search', [StoreController::class, 'search'])
     ->name('store.search');
 
@@ -44,9 +49,7 @@ Route::get('/mypage', [MypageController::class, 'mypage'])
 Route::post('/login', [StoreController::class, 'index'])
     ->middleware(['guest'])
     ->name('login');
-Route::post('/register', [RegisteredUserController::class, 'store'])
-    ->middleware(['guest'])
-    ->name('register');
+Route::post('/reserve', [ReserveController::class, 'store'])->name('reserve.store');
 Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth')
     ->name('logout');

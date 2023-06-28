@@ -1,6 +1,7 @@
 @extends('layouts.web-app')
 
 @section('title')
+@yield('back-button')
     <div class="detail-content">
         <div class="detail-main">
             <div class="header-nav">
@@ -27,7 +28,9 @@
             </div>
             <div class="detail__ttl-btn">
             <form action="/" method="get">
-                <button class="detail__btn" name="" value=""><</button>        
+                <button class="detail__btn" name="" value="">
+                    <
+                </button>        
             </form>
             <h1 class="detail__ttl">
             {{$store->store}}
@@ -50,12 +53,14 @@
         </div>
         <div class="detail-sub">
             <div class="detail-reserve">
+                <form action="{{ route('store.done') }}" method="post">
+                        @csrf
                 <div class="detail-reserve_sub">
                     <h1 class="detail-title">
                     予約
                     </h1>
-                    <input id="date-input" type="text" class="detail-datatime" placeholder="2023/6/1">
-                    <select id="time-select" name="select" class="select-time">
+                    <input id="date-input" type="datetime" class="detail-datatime" name="datetime" placeholder="2023/6/1">
+                    <select id="time-select" name="time" class="select-time" required>
                         <option value="17:00">17:00</option>
                         <option value="18:00">18:00</option>
                         <option value="19:00">19:00</option>
@@ -64,7 +69,7 @@
                         <option value="22:00">22:00</option>
                     </select>
                     </br>
-                    <select id="number-select" name="select" class="select-number">
+                    <select id="number-select" name="number" class="select-number">
                         <option value="2人">1人</option>
                         <option value="2人">2人</option>
                         <option value="3人">3人</option>
@@ -76,14 +81,13 @@
                         <option value="9人">9人</option>
                         <option value="10人">10人</option>
                     </select>
-                    <form action="/done" method="get">
                     <div class="detail-information">
                         <table class="detail-table">
                         <tr class="detail-information_title">
                             <th class="detail-information_shop detail-information_table">
                                 Shop
                             </th>
-                            <td class="detail-information_content">
+                            <td class="detail-information_content" name="store">
                                 {{$store->store}}
                             </td>
                         </tr>
@@ -91,26 +95,27 @@
                             <th class="detail-information_data detail-information_table">
                                 Data
                             </th>
-                            <td class="detail-information_content" id="data-content">
+                            <td class="detail-information_content" id="data-content" name="datetime">
                             </td>
                         </tr>
                         <tr class="detail-information_title">
                             <th class="detail-information_time detail-information_table">
                                 Time
                             </th>
-                            <td class="detail-information_content" id="time-content">
+                            <td class="detail-information_content" id="time-content" name="time">
                             </td>
                         </tr>
                         <tr class="detail-information_title">
                             <th class="detail-information_number detail-information_table">
-                                Numver
+                                Number
                             </th>
-                            <td class="detail-information_content" id="number-content">
+                            <td class="detail-information_content" id="number-content" name="number">
                             </td>
                         </tr>
                         </table>
                     </div>    
                 </div>
+                <input type="hidden" name="store_id" value="{{ $store->id }}">
                 <input type="submit" class="detail_btn detail_btn-sub" value="予約する">
                 </form>
             </div>

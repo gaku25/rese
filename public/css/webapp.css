@@ -393,17 +393,23 @@ a {
 }
 
 .mypage_favorite-tetle{
-  padding-top: 23px;
+  padding-top: 7px;
 }
 
 /* マイページ */
+.favorite__card-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .mypage_register-page {
   width: 80%;
-  height: 100%;
+  height: 36%;
   background-color: #3574fa;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   color: #fff;
+  margin-bottom: 25px;
 }
 
 .mypage_register-situation{
@@ -438,11 +444,35 @@ a {
   background-color: #fff;
 }
 
-.favorite__card {
-  width: 40%;
-  height: 90%;
+.mypage__card {
+  width: 35%;
+  height: 30%;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
-  margin: 0px 10px 30px 10px;
+  margin: 0px 80px 30px 10px;
   border-radius: 5px;
   background-color: #fff;
 }
+
+.heart-active {
+  filter: invert(29%) sepia(81%) saturate(5967%) hue-rotate(347deg) brightness(97%) contrast(92%);
+}
+
+.card__content {
+  padding: 20px 25px;
+}
+
+.tag__favorite p {
+  display: inline;
+  margin: 0;
+  line-height: 40px;
+}
+
+.card__favorite{
+  padding: 5px 25px 10px 25px;
+}
+
+.mypage__user{
+  font-size: 26px;
+  font-weight: bold;
+}
+

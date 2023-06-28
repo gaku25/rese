@@ -13,13 +13,14 @@ class CreateReservesTable extends Migration
      */
     public function up()
     {
-        Schema::create('reserves', function (Blueprint $table) {
+        Schema::create('reserves', function (Blueprint $table) 
+        {
             $table->id();
-            $table->date('date');
-            $table->time('time');
-            $table->integer('number');
-            $table->integer('user_id');
-            $table->integer('store_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('store_id');
+            $table->string('number');
+            $table->datetime('datetime');
+            $table->string('time');
             $table->timestamps();
         });
     }

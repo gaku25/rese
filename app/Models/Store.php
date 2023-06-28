@@ -20,11 +20,14 @@ class Store extends Model
         return $this->belongsTo(Genre::class, 'genre_id','id');
     }
 
-    public function valuation(){
-        return $this->hasMany('App\Models\valuation');
+    protected $table = 'stores';
+
+    public function reserves()
+    {
+        return $this->hasMany(Reserve::class, 'store_id', 'id');
     }
 
     public function favorites(){
-    return $this->hasMany(Favorite::class, 'store_id');
-}
+        return $this->hasMany(Favorite::class, 'store_id','id');
+    }
 }
