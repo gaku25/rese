@@ -16,17 +16,15 @@ use Illuminate\Http\Request;
 class MypageController extends Controller
 {
     public function mypage()
-{
-    $user = Auth::user();
-    $store = Store::first(); // 例として最初の店舗を取得する
-    $reserve = Reserve::all();
-    $favorite = Favorite::all();
-    $param = [
-        'user' => $user,
-        'store' => $store, // $store変数を追加
-        'reserve' => $reserve,
-        'favorite' => $favorite,
-    ];
-    return view('mypage', $param);
-}
+    {
+        $user = Auth::user();
+        $reserves = Reserve::where('user_id', $user->id)->get();
+        $favorites = Favorite::where('user_id', $user->id)->get();
+        $param = [
+            'user' => $user,
+            'reserves' => $reserves,
+            'favorites' => $favorites,
+        ];
+        return view('mypage', $param);
+    }
 }

@@ -45,4 +45,12 @@ class ReserveController extends Controller
 
     return view('done');
     }
+
+    public function delete(Request $request, $id)
+{
+    $reserve = Reserve::findOrFail($id);
+    $reserve->delete();
+
+    return redirect()->route('mypage')->with('message');
+}
 }

@@ -413,7 +413,7 @@ a {
 }
 
 .mypage_register-situation{
-  padding: 50px 0 0 110px;
+  padding: 30px 0 0 110px;
 }
 
 .detail-table{
@@ -476,3 +476,18 @@ a {
   font-weight: bold;
 }
 
+.mypage_cancel-btn{
+  background-color: #3574fa;
+  cursor: pointer;
+  border: none;
+}
+
+.mypage_cancel {
+  background-color: #3574fa;
+  border: none;
+  padding: 45px 30px 0 550px;
+}
+
+.mypage_register-flex{
+  display: flex;
+}

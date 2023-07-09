@@ -22,36 +22,24 @@ use App\Http\Middleware\FirstMiddleware;
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-Route::get('/', [StoreController::class, 'index']);
-Route::post('/', [StoreController::class, 'index']);
-Route::get('/detail/{id}', [StoreController::class, 'detail'])
-    ->name('store.detail');
+
+Route::get('/', [StoreController::class, 'index'])->middleware('auth');
+Route::post('/', [StoreController::class, 'index'])->middleware('auth');
+Route::get('/detail/{id}', [StoreController::class, 'detail'])->name('store.detail');
 Route::post('/done', [ReserveController::class, 'done'])->name('store.done');
-// Route::get('/reserve/done', [ReserveController::class, 'reserveDone'])
-//     ->name('reserve.done');
-Route::post('/done', [ReserveController::class, 'done'])->name('store.done');
-// Route::get('/done/{id}', [StoreController::class, 'done'])->name('store.done');
+Route::get('/search', [StoreController::class, 'search'])->name('store.search');
+Route::post('/reserve/delete/{id}', [ReserveController::class, 'delete'])->name('reserve.delete');
 
-Route::get('/search', [StoreController::class, 'search'])
-    ->name('store.search');
+Route::post('/favorites/add', [FavoriteController::class, 'add'])->name('favorites.add');
+Route::post('/favorites/remove', [FavoriteController::class, 'remove'])->name('favorites.remove');
+Route::post('/favorites/toggle/{store_id}', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
+Route::post('/reserve/delete/{id}', [ReserveController::class, 'delete'])
+    ->name('reserve.delete');
 
-Route::post('/favorites/add', [FavoriteController::class, 'add'])
-    ->name('favorites.add');
-Route::post('/favorites/remove', [FavoriteController::class, 'remove'])
-    ->name('favorites.remove');
-Route::post('/favorites/toggle/{store_id}', [FavoriteController::class, 'toggle'])
-    ->name('favorites.toggle');
+Route::get('/mypage', [MypageController::class, 'mypage'])->middleware('auth')->name('mypage');
 
-Route::get('/mypage', [MypageController::class, 'mypage'])
-    ->middleware('auth')
-    ->name('mypage');
-
-Route::post('/login', [StoreController::class, 'index'])
-    ->middleware(['guest'])
-    ->name('login');
+Route::post('/login', [StoreController::class, 'index'])->middleware(['guest'])->name('login');
 Route::post('/reserve', [ReserveController::class, 'store'])->name('reserve.store');
-Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])
-    ->middleware('auth')
-    ->name('logout');
+Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth')->name('logout');
 
 require __DIR__.'/auth.php';
