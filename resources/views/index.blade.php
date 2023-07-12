@@ -74,9 +74,9 @@
         <div class="card__text">
         <form action="{{ route('store.detail', ['id' => $store->id]) }}" method="get">
         <button class="card__cat" name="id" value="{{ $store->id }}">詳しく見る</button>
-        <a href="{{ route('favorites.toggle', ['store_id' => $store->id]) }}" onclick="event.preventDefault(); toggleFavorite({{ $store->id }})">
-        <img id="heart-{{ $store->id }}" class="card__heart{{ $store->isFavorite ? ' heart-active' : '' }}" src="{{ asset('storage/heart.png') }}" alt="いいね" style="float: right;"/>
-        </a>
+        <a href="#" onclick="event.preventDefault(); toggleFavorite({{ $store->id }}, '{{ route('favorites.toggle', ['store_id' => $store->id]) }}', {{ $store->isFavorite ? 'true' : 'false' }}, '{{ route('mypage') }}')">
+    <img id="heart-{{ $store->id }}" class="card__heart{{ $store->isFavorite ? ' heart-active' : '' }}" src="{{ asset('storage/heart.png') }}" alt="いいね" style="float: right;"/>
+</a>
         </form>
         </div>
     </div>
@@ -85,12 +85,12 @@
     </div> 
         
 <script>
-    function toggleFavorite(storeId) {
+    function toggleFavorite(storeId, url, isFavorite, redirectUrl) {
     const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     const heartButton = document.getElementById('heart-' + storeId);
 
     // お気に入り追加/削除のAJAXリクエストを送信
-    fetch("/favorites/toggle/" + storeId, {
+    fetch(url, {
         method: 'POST',
         headers: {
             'X-CSRF-TOKEN': token,
@@ -106,6 +106,11 @@
 
         // ハートボタンのスタイルを変更
         heartButton.classList.toggle('heart-active', data.isFavorite);
+
+        // マイページへのリダイレクト
+        if (data.redirect) {
+            window.location.href = redirectUrl;
+        }
     })
     .catch(error => {
         console.error('Error:', error);

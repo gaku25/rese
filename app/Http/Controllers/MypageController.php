@@ -20,6 +20,10 @@ class MypageController extends Controller
         $user = Auth::user();
         $reserves = Reserve::where('user_id', $user->id)->get();
         $favorites = Favorite::where('user_id', $user->id)->get();
+        $userFavorites = $user->favorites->pluck('store_id')->toArray();
+    foreach ($favorites as $favorite) {
+        $favorite->store->isFavorite = in_array($favorite->store->id, $userFavorites);
+    }
         $param = [
             'user' => $user,
             'reserves' => $reserves,

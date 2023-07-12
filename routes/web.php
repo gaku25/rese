@@ -35,11 +35,12 @@ Route::post('/favorites/remove', [FavoriteController::class, 'remove'])->name('f
 Route::post('/favorites/toggle/{store_id}', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
 Route::post('/reserve/delete/{id}', [ReserveController::class, 'delete'])
     ->name('reserve.delete');
-
+Route::post('/favorites/toggle/{store_id}', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
 Route::get('/mypage', [MypageController::class, 'mypage'])->middleware('auth')->name('mypage');
 
 Route::post('/login', [StoreController::class, 'index'])->middleware(['guest'])->name('login');
 Route::post('/reserve', [ReserveController::class, 'store'])->name('reserve.store');
 Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth')->name('logout');
+Route::match(['get', 'post'], '/favorites/toggle/{store_id}', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
 
 require __DIR__.'/auth.php';

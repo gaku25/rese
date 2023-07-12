@@ -110,9 +110,9 @@
                             <div class="card__text">
                                 <form action="{{ route('store.detail', ['id' => $favorite->store->id]) }}" method="get">
                                     <button class="card__cat cat__favorite" name="id" value="{{ $favorite->store->id }}">詳しく見る</button>
-                                    <a href="{{ route('favorites.toggle', ['store_id' => $favorite->store->id]) }}" onclick="event.preventDefault(); toggleFavorite({{ $favorite->store->id }})">
-                                        <img id="heart-{{ $favorite->store->id }}" class="card__heart{{ $favorite->isFavorite ? ' heart-active' : '' }}" src="{{ asset('storage/heart.png') }}" alt="お気に入り" style="float: right;"/>
-                                    </a>
+                                    <a href="{{ route('favorites.toggle', ['store_id' => $favorite->store->id]) }}">
+                                    <img id="heart-{{ $favorite->store->id }}" class="card__heart{{ $favorite->store->isFavorite ? ' heart-active' : '' }}" src="{{ asset('storage/heart.png') }}" alt="お気に入り" style="float: right;"/>
+                                </a>
                                 </form>
                             </div>
                         </div>
