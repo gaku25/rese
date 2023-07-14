@@ -29,7 +29,7 @@ class ReserveController extends Controller
         $reserve->number = $request->number;
         $reserve->save();
 
-        return redirect()->route('store.done');
+    return redirect()->route('store.done');
     }
 
     public function done(Request $request)
@@ -48,9 +48,8 @@ class ReserveController extends Controller
 
     public function delete(Request $request, $id)
 {
-    $reserve = Reserve::findOrFail($id);
-    $reserve->delete();
-
+        $reserve = Reserve::findOrFail($id);
+        $reserve->delete();
     return redirect()->route('mypage')->with('message');
 }
 }

@@ -14,12 +14,12 @@ class StoreController extends Controller
 {
     public function index()
     {
-        if (Auth::check()) {
+    if (Auth::check()) {
         $user = Auth::user();
         $stores = Store::all();
         // 各店舗のお気に入りフラグを設定する
-        foreach ($stores as $store) {
-            $store->isFavorite = $user->favorites->contains('store_id', $store->id);
+    foreach ($stores as $store) {
+        $store->isFavorite = $user->favorites->contains('store_id', $store->id);
         }
     } else {
         $user = null;
@@ -33,7 +33,7 @@ class StoreController extends Controller
             'areas' => $areas,
             'genres' => $genres,
         ];
-        return view('index',$param);
+    return view('index',$param);
     }
 
     public function detail(Request $request, $id)
@@ -63,28 +63,28 @@ class StoreController extends Controller
 
     public function search(Request $request)
 {
-    $input_area = $request->input('area');
-    $input_genre = $request->input('genre');
-    $keyword = $request->input('keyword');
-    $query = Store::query();
-        if ($input_area) {
-            $query->where('area_id', $input_area);
-        }
-        if ($input_genre) {
-            $query->where('genre_id', $input_genre);
-        }
-        if ($keyword) {
-            $query->where('store', 'LIKE', "%$keyword%");
-        }
-    $stores = $query->get();
-    $areas = Area::all();
-    $genres = Genre::all();
-    $param = [
-        'stores' => $stores,
-        'areas' => $areas,
-        'genres' => $genres,
-        'input_area' => $input_area,
-        'input_genre' => $input_genre,
+        $input_area = $request->input('area');
+        $input_genre = $request->input('genre');
+        $keyword = $request->input('keyword');
+        $query = Store::query();
+    if ($input_area) {
+        $query->where('area_id', $input_area);
+    }
+    if ($input_genre) {
+        $query->where('genre_id', $input_genre);
+    }
+    if ($keyword) {
+        $query->where('store', 'LIKE', "%$keyword%");
+    }
+        $stores = $query->get();
+        $areas = Area::all();
+        $genres = Genre::all();
+        $param = [
+            'stores' => $stores,
+            'areas' => $areas,
+            'genres' => $genres,
+            'input_area' => $input_area,
+            'input_genre' => $input_genre,
     ];
     return view('index', $param);
 }
