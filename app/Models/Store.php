@@ -10,6 +10,8 @@ class Store extends Model
 {
     use HasFactory;
 
+    public $isFavorite;
+
     protected $fillable = ['store', 'overview', 'image'];
 
     public function area(){

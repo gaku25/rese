@@ -27,11 +27,16 @@
             </div>
             </div>
             <div class="detail__ttl-btn">
-            <form action="/" method="get">
-                <button class="detail__btn" name="" value="">
-                    <
-                </button>        
-            </form>
+        @if ($returnToPage === 'index')
+    <a href="{{ route('index') }}" class="detail__btn">
+        <
+    </a>
+@elseif ($returnToPage === 'mypage')
+    <a href="{{ route('mypage') }}" class="detail__btn">
+        <
+    </a>
+@endif
+
             <h1 class="detail__ttl">
             {{$store->store}}
             </h1>

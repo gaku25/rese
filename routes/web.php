@@ -23,9 +23,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/', [StoreController::class, 'index'])->middleware('auth');
+Route::get('/', [StoreController::class, 'index'])->middleware('auth')->name('index');
 Route::post('/', [StoreController::class, 'index'])->middleware('auth');
-Route::get('/detail/{id}', [StoreController::class, 'detail'])->name('store.detail');
+Route::get('/detail/{id}', [StoreController::class, 'detail'])->name('store.detail')->middleware('web');
 Route::post('/done', [ReserveController::class, 'done'])->name('store.done');
 Route::get('/search', [StoreController::class, 'search'])->name('store.search');
 Route::post('/reserve/delete/{id}', [ReserveController::class, 'delete'])->name('reserve.delete');

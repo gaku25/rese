@@ -73,7 +73,7 @@
         </div>
         <div class="card__text">
         <form action="{{ route('store.detail', ['id' => $store->id]) }}" method="get">
-        <button class="card__cat" name="id" value="{{ $store->id }}">詳しく見る</button>
+    <button class="card__cat" name="id" value="{{ $store->id }}" onclick="location.href='{{ route('store.detail', ['id' => $store->id, 'return_to' => 'index']) }}'">詳しく見る</button>
         <a href="#" onclick="event.preventDefault(); toggleFavorite({{ $store->id }}, '{{ route('favorites.toggle', ['store_id' => $store->id]) }}', {{ $store->isFavorite ? 'true' : 'false' }}, '{{ route('mypage') }}')">
     <img id="heart-{{ $store->id }}" class="card__heart{{ $store->isFavorite ? ' heart-active' : '' }}" src="{{ asset('storage/heart.png') }}" alt="いいね" style="float: right;"/>
 </a>
