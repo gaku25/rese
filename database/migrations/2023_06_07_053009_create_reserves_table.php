@@ -19,7 +19,7 @@ class CreateReservesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('store_id');
             $table->string('number');
-            $table->datetime('datetime');
+            $table->date('date');
             $table->string('time');
             $table->timestamps();
         });

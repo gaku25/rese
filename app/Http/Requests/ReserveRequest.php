@@ -25,7 +25,7 @@ class ReserveRequest extends FormRequest
     {
         return [
             'restaurant_id' => 'required',
-            'datetime' => 'required',
+            'date' => 'required',
             'time' => 'required',
             'number' => 'required',
         ];

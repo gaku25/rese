@@ -15,7 +15,7 @@ class ReserveController extends Controller
     public function store(ReserveRequest $request)
     {
         $validatedData = $request->validate([
-            'datetime' => 'required',
+            'date' => 'required',
             'time' => 'required',
             'number' => 'required',
         ]);
@@ -24,7 +24,7 @@ class ReserveController extends Controller
         $reserve = new Reserve();
         $reserve->user_id = $user->id;
         $reserve->store_id = $request->store_id;
-        $reserve->datetime = $request->datetime;
+        $reserve->date = $request->date;
         $reserve->time = $request->time;
         $reserve->number = $request->number;
         $reserve->save();
@@ -38,7 +38,7 @@ class ReserveController extends Controller
         $reserve = new Reserve();
         $reserve->user_id = $user->id;
         $reserve->store_id = $request->store_id;
-        $reserve->datetime = $request->datetime;
+        $reserve->date = $request->date;
         $reserve->time = $request->time;
         $reserve->number = $request->number;
         $reserve->save();

@@ -11,7 +11,7 @@ class Reserve extends Model
 
     protected $fillable = 
     [
-        'datetime', 
+        'date', 
         'time', 
         'number',
         'store_id',

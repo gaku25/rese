@@ -59,7 +59,7 @@
                                 Data
                             </th>
                             <td class="detail-information_content" id="data-content">
-                                {{ $reserve->datetime }}
+                                {{ $reserve->date }}
                             </td>
                         </tr>
                         <tr class="detail-information_title">

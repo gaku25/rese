@@ -23,23 +23,23 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/', [StoreController::class, 'index'])->middleware('auth')->name('index');
-Route::post('/', [StoreController::class, 'index'])->middleware('auth');
-Route::get('/detail/{id}', [StoreController::class, 'detail'])->name('store.detail')->middleware('web');
+Route::get('/', [StoreController::class, 'index'])->name('index');
+Route::post('/', [StoreController::class, 'index']);
+Route::get('/detail/{id}', [StoreController::class, 'detail'])->name('store.detail');
 Route::post('/done', [ReserveController::class, 'done'])->name('store.done');
 Route::get('/search', [StoreController::class, 'search'])->name('store.search');
 Route::post('/reserve/delete/{id}', [ReserveController::class, 'delete'])->name('reserve.delete');
 
-Route::post('/favorites/add', [FavoriteController::class, 'add'])->name('favorites.add');
-Route::post('/favorites/remove', [FavoriteController::class, 'remove'])->name('favorites.remove');
-Route::post('/favorites/toggle/{store_id}', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
+Route::post('/favorites/add', [FavoriteController::class, 'add'])->middleware('auth')->name('favorites.add');
+Route::post('/favorites/remove', [FavoriteController::class, 'remove'])->middleware('auth')->name('favorites.remove');
+Route::post('/favorites/toggle/{store_id}', [FavoriteController::class, 'toggle'])->middleware('auth')->name('favorites.toggle');
 Route::post('/reserve/delete/{id}', [ReserveController::class, 'delete'])
     ->name('reserve.delete');
 Route::post('/favorites/toggle/{store_id}', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
-Route::get('/mypage', [MypageController::class, 'mypage'])->middleware('auth')->name('mypage');
+Route::get('/mypage', [MypageController::class, 'mypage'])->name('mypage');
 
 Route::post('/login', [StoreController::class, 'index'])->middleware(['guest'])->name('login');
-Route::post('/reserve', [ReserveController::class, 'store'])->name('reserve.store');
+Route::post('/reserve', [ReserveController::class, 'store'])->middleware('auth')->name('reserve.store');
 Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth')->name('logout');
 Route::match(['get', 'post'], '/favorites/toggle/{store_id}', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
 
