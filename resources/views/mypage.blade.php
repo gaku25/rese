@@ -31,12 +31,13 @@
             <h2 class="mypage_register-tetle">
                 予約状況
             </h2>
-            @foreach($reserves as $reserve)
+            @foreach($reserves as $index => $reserve)
                 <div class="mypage_register-page">
                     <div class="mypage_register-flex">
-                    <span class="mypage_register-logo"></span>
+                    <span class="mypage_register-logo">                
+                    </span>
                     <h3 class="mypage_register-situation">
-                        予約1
+                        予約{{ $index + 1 }}
                     </h3>
                     <form action="{{ route('reserve.delete', ['id' => $reserve->id]) }}" method="post">
                         @csrf

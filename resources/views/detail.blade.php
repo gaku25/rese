@@ -64,7 +64,7 @@
                     <h1 class="detail-title">
                     予約
                     </h1>
-                    <input id="date-input" type="date" class="detail-datatime" name="date" placeholder="2023/6/1">
+                    <input id="date-input" type="date" class="detail-datatime" name="date">
                     <select id="time-select" name="time" class="select-time" required>
                         <option value="17:00">17:00</option>
                         <option value="18:00">18:00</option>
@@ -75,7 +75,7 @@
                     </select>
                     </br>
                     <select id="number-select" name="number" class="select-number">
-                        <option value="2人">1人</option>
+                        <option value="1人">1人</option>
                         <option value="2人">2人</option>
                         <option value="3人">3人</option>
                         <option value="4人">4人</option>

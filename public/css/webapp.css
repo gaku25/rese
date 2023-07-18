@@ -207,7 +207,7 @@ a {
 .tag p {
   display: inline;
   margin: 0;
-  line-height: 70px;
+  line-height: 40px;
 }
 
 .card__tag {
@@ -241,7 +241,7 @@ a {
 }
 
 .detail__ttl-btn h1 {
-  margin: 0 0 0 10px ;
+  margin: 0 0 0 20px ;
 }
 
 .detail__btn{
@@ -294,6 +294,7 @@ a {
   margin-bottom: 20px;
   font-size: 14px;
   border-radius: 5px;
+  padding-left: 10px;
 }
 
 .select-time{
@@ -302,6 +303,7 @@ a {
   margin-bottom: 20px;
   font-size: 14px;
   border-radius: 5px;
+  padding-left: 10px;
   cursor: pointer;
 }
 
@@ -311,6 +313,7 @@ a {
   margin-bottom: 20px;
   font-size: 14px;
   border-radius: 5px;
+  padding-left: 10px;
   cursor: pointer;
 }
 
@@ -396,6 +399,12 @@ a {
   padding-top: 7px;
 }
 
+.detail-datatime,
+.select-time,
+.select-number {
+  font-family: 'Roboto', sans-serif;
+}
+
 /* マイページ */
 .favorite__card-flex {
   display: flex;
@@ -404,7 +413,6 @@ a {
 
 .mypage_register-page {
   width: 80%;
-  height: 36%;
   background-color: #3574fa;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
@@ -417,7 +425,7 @@ a {
 }
 
 .detail-table{
-  padding: 15px 0 0 50px;
+  padding: 15px 0 10px 50px;
 }
 
 .mypage_register-logo {
@@ -485,7 +493,8 @@ a {
 .mypage_cancel {
   background-color: #3574fa;
   border: none;
-  padding: 45px 30px 0 550px;
+  padding: 45px 30px 0 0;
+  margin-left: 550px;
 }
 
 .mypage_register-flex{
