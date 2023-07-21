@@ -5,16 +5,39 @@
         <div class="detail-main">
             <div class="header-nav">
             <input id="drawer_input" class="drawer_hidden" type="checkbox">
-            <label for="drawer_input" class="drawer_open"><span></span></label>
+            <label for="drawer_input" class="drawer_open">
+                <span>                    
+                </span>
+            </label>
             <nav class="nav_content">
                 <ul class="nav_list">
-                <li class="nav_item"><a href="http://127.0.0.1:8000">Home</a></li>
+                <li class="nav_item">
+                    <a href="http://127.0.0.1:8000">
+                        Home
+                    </a>
+                </li>
                 @if (Auth::check())
-                <li class="nav_item"><a href="{{ route('logout') }}">Logout</a></li>
-                <li class="nav_item"><a href="{{ route('mypage') }}">Mypage</a></li>
+                <li class="nav_item">
+                    <a href="{{ route('logout') }}">
+                        Logout
+                    </a>
+                </li>
+                <li class="nav_item">
+                    <a href="{{ route('mypage') }}">
+                        Mypage
+                    </a>
+                </li>
                 @else
-                <li class="nav_item"><a href="http://127.0.0.1:8000/register">Registration</a></li>
-                <li class="nav_item"><a href="{{ route('login') }}">Login</a></li>
+                <li class="nav_item">
+                    <a href="http://127.0.0.1:8000/register">
+                        Registration
+                    </a>
+                </li>
+                <li class="nav_item">
+                    <a href="{{ route('login') }}">
+                        Login
+                    </a>
+                </li>
                 @endif
             </ul>
             </nav>
@@ -86,9 +109,9 @@
         <div class="mypage_favorite">
             <div class="mypage__user">
                 @if (Auth::check())
-                    <div class="mypage__user-login">{{ Auth::user()->name }}さん</div>
-                @else
-                    <div class="mypage__user-logout">ログインしてください。</div>
+                    <div class="mypage__user-login">
+                        {{ Auth::user()->name }}さん
+                    </div>
                 @endif
             </div>
             <h2 class="mypage_favorite-tetle">
@@ -105,15 +128,21 @@
                                 {{ $favorite->store->store }}
                             </h1>
                             <div class="tag tag__favorite">
-                                <p class="card__tag tag__favorite">#{{ $favorite->store->area->area }}</p>
-                                <p class="card__date date__favorite">#{{ $favorite->store->genre->genre }}</p>
+                                <p class="card__tag tag__favorite">
+                                    #{{ $favorite->store->area->area }}
+                                </p>
+                                <p class="card__date date__favorite">
+                                    #{{ $favorite->store->genre->genre }}
+                                </p>
                             </div>
                             <div class="card__text">
                                 <form action="{{ route('store.detail', ['id' => $favorite->store->id]) }}" method="get">
-    <button class="card__cat" name="id" value="{{ $favorite->store->id }}" onclick="location.href='{{ route('store.detail', ['id' => $favorite->store->id, 'return_to' => 'mypage']) }}'">詳しく見る</button>
-                                    <a href="{{ route('favorites.toggle', ['store_id' => $favorite->store->id]) }}">
-                                    <img id="heart-{{ $favorite->store->id }}" class="card__heart{{ $favorite->store->isFavorite ? ' heart-active' : '' }}" src="{{ asset('storage/heart.png') }}" alt="お気に入り" style="float: right;"/>
-                                </a>
+                                    <button class="card__cat" name="id" value="{{ $favorite->store->id }}" onclick="location.href='{{ route('store.detail', ['id' => $favorite->store->id, 'return_to' => 'mypage']) }}'">
+                                        詳しく見る
+                                    </button>
+                                        <a href="{{ route('favorites.toggle', ['store_id' => $favorite->store->id]) }}">
+                                            <img id="heart-{{ $favorite->store->id }}" class="card__heart{{ $favorite->store->isFavorite ? ' heart-active' : '' }}" src="{{ asset('storage/heart.png') }}" alt="お気に入り" style="float: right;"/>
+                                        </a>
                                 </form>
                             </div>
                         </div>

@@ -13,13 +13,33 @@
         <!-- メニュー -->
         <nav class="nav_content">
             <ul class="nav_list">
-            <li class="nav_item"><a href="http://127.0.0.1:8000">Home</a></li>
+            <li class="nav_item">
+                <a href="http://127.0.0.1:8000">
+                    Home
+                </a>
+            </li>
             @if (Auth::check())
-            <li class="nav_item"><a href="{{ route('logout') }}">Logout</a></li>
-            <li class="nav_item"><a href="{{ route('mypage') }}">Mypage</a></li>
+            <li class="nav_item">
+                <a href="{{ route('logout') }}">
+                    Logout
+                </a>
+            </li>
+            <li class="nav_item">
+                <a href="{{ route('mypage') }}">
+                    Mypage
+                </a>
+            </li>
             @else
-            <li class="nav_item"><a href="http://127.0.0.1:8000/register">Registration</a></li>
-            <li class="nav_item"><a href="{{ route('login') }}">Login</a></li>
+            <li class="nav_item">
+                <a href="http://127.0.0.1:8000/register">
+                    Registration
+                </a>
+            </li>
+            <li class="nav_item">
+                <a href="{{ route('login') }}">
+                    Login
+                </a>
+            </li>
             @endif
             </ul>
         </nav>
@@ -28,31 +48,39 @@
         <div class="logo">
             Rese
         </div>
-    </div>
-        <div>
-            <form class="header-search" action="{{ route('store.search') }}" method="get">
-            <div class="header-search_area">
-                    <select name="area" class="select-area">
-                    <option value="">ALL&nbsp;area</option>
-                    @foreach($areas as $area)
-                    <option value="{{ $area->id }}" name="keyword" @if(isset($input_area)) @if( $area->id == $input_area) selected @endif @endif>{{ $area->area }}</option>
-                    @endforeach
-                    </select>
-            </div>
-            <div class="header-search_genre">
-                    <select name="genre" class="select-genre">
-                    <option value="">ALL&nbsp;genre</option>
-                    @foreach($genres as $genre)
-                    <option value="{{ $genre->id }}" name="keyword" @if(isset($input_genre)) @if( $genre->id == $input_genre) selected @endif @endif>{{ $genre->genre }}</option>
-                    @endforeach
-                    </select>
-            </div>
-            <div class="header-search_text">
-                <span class="select-icon"></span>
-                <input type="text" name="keyword" class="select-text" placeholder="Search...">
-            </div>
-            </form>
         </div>
+            <div>
+                <form class="header-search" action="{{ route('store.search') }}" method="get">
+                <div class="header-search_area">
+                        <select name="area" class="select-area">
+                        <option value="">
+                            ALL&nbsp;area
+                        </option>
+                        @foreach($areas as $area)
+                        <option value="{{ $area->id }}" name="keyword" @if(isset($input_area)) @if( $area->
+                            id == $input_area) selected @endif @endif>{{ $area->area }}
+                        </option>
+                        @endforeach
+                        </select>
+                </div>
+                <div class="header-search_genre">
+                        <select name="genre" class="select-genre">
+                        <option value="">
+                            ALL&nbsp;genre
+                        </option>
+                        @foreach($genres as $genre)
+                        <option value="{{ $genre->id }}" name="keyword" @if(isset($input_genre)) @if( $genre->
+                            id == $input_genre) selected @endif @endif>{{ $genre->genre }}
+                        </option>
+                        @endforeach
+                        </select>
+                </div>
+                <div class="header-search_text">
+                    <span class="select-icon"></span>
+                    <input type="text" name="keyword" class="select-text" placeholder="Search...">
+                </div>
+                </form>
+            </div>
     </header>
 @endsection
         
@@ -68,15 +96,21 @@
         {{ $store->store }}
         </h1>
         <div class="tag">
-        <p class="card__tag">#{{ $store->area->area }}</p>
-        <p class="card__date">#{{ $store->genre->genre }}</p>
+        <p class="card__tag">
+            #{{ $store->area->area }}
+        </p>
+        <p class="card__date">
+            #{{ $store->genre->genre }}
+        </p>
         </div>
         <div class="card__text">
         <form action="{{ route('store.detail', ['id' => $store->id]) }}" method="get">
-    <button class="card__cat" name="id" value="{{ $store->id }}" onclick="location.href='{{ route('store.detail', ['id' => $store->id, 'return_to' => 'index']) }}'">詳しく見る</button>
-        <a href="#" onclick="event.preventDefault(); toggleFavorite({{ $store->id }}, '{{ route('favorites.toggle', ['store_id' => $store->id]) }}', {{ $store->isFavorite ? 'true' : 'false' }}, '{{ route('mypage') }}')">
-    <img id="heart-{{ $store->id }}" class="card__heart{{ $store->isFavorite ? ' heart-active' : '' }}" src="{{ asset('storage/heart.png') }}" alt="いいね" style="float: right;"/>
-</a>
+            <button class="card__cat" name="id" value="{{ $store->id }}" onclick="location.href='{{ route('store.detail', ['id' => $store->id, 'return_to' => 'index']) }}'">
+                詳しく見る
+            </button>
+                <a href="#" onclick="event.preventDefault(); toggleFavorite({{ $store->id }}, '{{ route('favorites.toggle', ['store_id' => $store->id]) }}', {{ $store->isFavorite ? 'true' : 'false' }}, '{{ route('mypage') }}')">
+                    <img id="heart-{{ $store->id }}" class="card__heart{{ $store->isFavorite ? ' heart-active' : '' }}" src="{{ asset('storage/heart.png') }}" alt="いいね" style="float: right;"/>
+                </a>
         </form>
         </div>
     </div>

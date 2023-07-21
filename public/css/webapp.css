@@ -1,11 +1,13 @@
+/* スマートフォン向け */
+@media screen and (max-width: 480px) {
 body {
   background-color: rgb(243 244 246);
 }
 
 .logo {
-  font-size: 30px;
+  font-size: 18px;
   color:#2563eb;
-  font-weight: 900;
+  font-weight: 500;
 }
 
 a {
@@ -23,34 +25,33 @@ a {
   display: flex;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
-  padding: 10px 10px;
   background-color: #fff;
 }
 
 .header{
-  margin: 30px 45px 0 45px;
+  margin: 10px 5px 0 5px;
   display: flex;
 }
 
 .select-area {
-  padding: 10px 20px 5px 5px;
-  font-size: 16px;
+  padding: 5px 8px 2px 2px;
+  font-size: 10px;
   font-weight: bold;
   border: none;
   border-right: 3px solid #ebebeb;
 }
 
 .select-genre {
-  padding: 10px 15px 5px 5px;
-  font-size: 16px;
+  padding: 5px 8px 2px 2px;
+  font-size: 10px;
   font-weight: bold;
   border: none;
   border-right: 3px solid #ebebeb;
 }
 
 .select-text{
-  padding: 10px 150px 5px 50px;
-  font-size: 16px;
+  padding: 5px 0px 2px 22px;
+  font-size: 10px;
   border: none;
 }
 
@@ -62,7 +63,7 @@ a {
   content: "";
   position: absolute;
   top: 50%;
-  left: 10px;
+  left: 3px;
   background: url(../../storage/search.png) no-repeat;
   background-size: cover;
   width: 20px;
@@ -81,8 +82,8 @@ a {
 /* ハンバーガーアイコンの設置スペース */
 .drawer_open {
   display: flex;
-  height: 60px;
-  width: 60px;
+  height: 30px;
+  width: 30px;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -108,12 +109,12 @@ a {
 
 /* 三本線の一番上の棒の位置調整 */
 .drawer_open span:before {
-  bottom: 8px;
+  bottom: 4px;
 }
 
 /* 三本線の一番下の棒の位置調整 */
 .drawer_open span:after {
-  top: 8px;
+  top: 4px;
 }
 
 /* アイコンがクリックされたら真ん中の線を透明にする */
@@ -165,7 +166,7 @@ a {
 .flex__item {
   display: flex;
   flex-wrap: wrap;
-  margin: 30px 35px 30px 45px;
+  margin: 15px 17px 15px 22px;
 }
 
 .detail__img img{
@@ -177,37 +178,33 @@ a {
   border-radius: 5px 5px 0 0;
 }
 
-.card__content {
-  padding: 20px 25px;
-}
-
 .card__ttl {
-  font-size: 20px;
-  font-weight: 400;
+  font-size: 12px;
+  font-weight: 200;
   margin: 0 0;
   font-weight: bold;
 }
 
 .card__cat {
-  padding: 5px 17px;
+  padding: 2px 8px;
   background: #2e65fd;
   display: inline-block;
   color: #fff;
   border-radius: 5px;
-  font-size: 14px;
-  padding: 10px 25px;
+  font-size: 12px;
+  padding: 5px 12px;
   border: none;
   cursor: pointer;
 }
 
 .tag {
-  font-size: 14px;
+  font-size: 10px;
 }
 
 .tag p {
   display: inline;
   margin: 0;
-  line-height: 40px;
+  line-height: 20px;
 }
 
 .card__tag {
@@ -227,36 +224,36 @@ a {
 
 /* 詳細ページCSS */
 .detail__ttl{
-  font-size: 40px;
+  font-size: 20px;
 }
 
 .detail__ttl-btn {
   display: flex;
   align-items: center;
-  margin: 45px 0 20px 0;
+  margin: 22px 0 10px 0;
 }
 
 .detail__ttl-btn form {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .detail__ttl-btn h1 {
-  margin: 0 0 0 20px ;
+  margin: 0 0 0 10px ;
 }
 
 .detail__btn{
   background-color: #fff;
   border: none;
-  font-size: 35px;
+  font-size: 17px;
   cursor: pointer;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
-  padding: 0 10px;
+  padding: 0 5px;
 }
 
 .detail-content{
   display: flex;
-  margin: 30px 45px 0 45px;
+  margin: 15px 22px 0 22px;
 }
 
 .detail-main{
@@ -284,43 +281,43 @@ a {
 }
 
 .detail-reserve_sub{
-  margin: 0 30px 0px 30px;
-  padding-top: 20px;
+  margin: 0 15px 0px 15px;
+  padding-top: 10px;
 }
 
 .detail-datatime{
-  width: 10vw;
+  width: 5vw;
   height: 1.5vw;
-  margin-bottom: 20px;
-  font-size: 14px;
+  margin-bottom: 10px;
+  font-size: 10px;
   border-radius: 5px;
-  padding-left: 10px;
+  padding-left: 5px;
 }
 
 .select-time{
-  width: 30vw;
+  width: 15vw;
   height: 1.5vw;
-  margin-bottom: 20px;
-  font-size: 14px;
+  margin-bottom: 10px;
+  font-size: 10px;
   border-radius: 5px;
   padding-left: 10px;
   cursor: pointer;
 }
 
 .select-number{
-  width: 30vw;
+  width: 15vw;
   height: 1.5vw;
-  margin-bottom: 20px;
-  font-size: 14px;
+  margin-bottom: 10px;
+  font-size: 10px;
   border-radius: 5px;
-  padding-left: 10px;
+  padding-left: 5px;
   cursor: pointer;
 }
 
 .detail-information{
   background-color: #84aafd;
   border-radius: 5px;
-  padding: 20px 20px 20px 20px;
+  padding: 10px 10px 10px 10px;
 }
 
 .detail-information_title{
@@ -328,11 +325,11 @@ a {
 }
 
 .detail-information_table{
-  line-height: 40px;
+  line-height: 20px;
 }
 
 .detail-information_content{
-  padding-left: 70px;
+  padding-left: 35px;
 }
 
 .detail_btn{
@@ -345,8 +342,8 @@ a {
   background-color: #2563eb;
   border: none;
   border-radius: 5px;
-  padding: 20px 45.5% 20px 45.5%;
-  font-size: 20px;
+  padding: 10px 22.5% 10px 22.5%;
+  font-size: 14px;
   cursor: pointer;
   background-color: #2e65fd;
 }
@@ -445,7 +442,7 @@ a {
 }
 
 .practice__card {
-  width: 24%;
+  width: 44%;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
   margin: 0px 10px 30px 10px;
   border-radius: 5px;
@@ -465,9 +462,9 @@ a {
   filter: invert(29%) sepia(81%) saturate(5967%) hue-rotate(347deg) brightness(97%) contrast(92%);
 }
 
-.card__content {
+/* .card__content {
   padding: 20px 25px;
-}
+} */
 
 .tag__favorite p {
   display: inline;
@@ -499,4 +496,1017 @@ a {
 
 .mypage_register-flex{
   display: flex;
+}
+}
+
+/* タブレット向け */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  body {
+    background-color: rgb(243 244 246);
+  }
+
+  .logo {
+    font-size: 30px;
+    color: #2563eb;
+    font-weight: 900;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  .header-nav {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+  }
+
+  .header-search {
+    display: flex;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 10px 10px;
+    background-color: #fff;
+  }
+
+  .header {
+    margin: 30px 45px 0 45px;
+    display: flex;
+  }
+
+  .select-area {
+    padding: 10px 20px 5px 5px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-right: 3px solid #ebebeb;
+  }
+
+  .select-genre {
+    padding: 10px 15px 5px 5px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-right: 3px solid #ebebeb;
+  }
+
+  .select-text {
+    padding: 10px 150px 5px 50px;
+    font-size: 16px;
+    border: none;
+  }
+
+  .select-icon {
+    position: relative;
+  }
+
+  .select-icon::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    background: url(../../storage/search.png) no-repeat;
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    color: #ebebeb;
+    transform: translate(0, -50%);
+  }
+
+  /* ここから下がハンバーガーメニューに関するCSS */
+
+  /* チェックボックスを非表示にする */
+  .drawer_hidden {
+    display: none;
+  }
+
+  /* ハンバーガーアイコンの設置スペース */
+  .drawer_open {
+    display: flex;
+    height: 60px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+    /* 重なり順を一番上にする */
+    cursor: pointer;
+  }
+
+  /* ハンバーガーメニューのアイコン */
+  .drawer_open span,
+  .drawer_open span:before,
+  .drawer_open span:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    color: #ffffff;
+    background-color: #2563eb;
+    transition: 0.5s;
+    position: absolute;
+  }
+
+  /* 三本線の一番上の棒の位置調整 */
+  .drawer_open span:before {
+    bottom: 8px;
+  }
+
+  /* 三本線の一番下の棒の位置調整 */
+  .drawer_open span:after {
+    top: 8px;
+  }
+
+  /* アイコンがクリックされたら真ん中の線を透明にする */
+  #drawer_input:checked~.drawer_open span {
+    background: rgba(255, 255, 255, 0);
+  }
+
+  /* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+  #drawer_input:checked~.drawer_open span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+  }
+
+  #drawer_input:checked~.drawer_open span::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  /* メニューのデザイン*/
+  .nav_content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    /* メニューを画面の外に飛ばす */
+    z-index: 99;
+    background: #fff;
+    transition: .5s;
+  }
+
+  /* メニュー黒ポチを消す */
+  .nav_list {
+    list-style: none;
+    color: #2563eb;
+    text-align: center;
+    margin: 10rem;
+    font-size: 2.5rem;
+    font-weight: 3rem;
+  }
+
+  /* アイコンがクリックされたらメニューを表示 */
+  #drawer_input:checked~.nav_content {
+    left: 0;
+    /* メニューを画面に入れる */
+  }
+
+  /* カード表示 */
+  .flex__item {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px 35px 30px 45px;
+  }
+
+  .detail__img img {
+    width: 100%;
+  }
+
+  .card__img img {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .card__content {
+    padding: 20px 25px;
+  }
+
+  .card__ttl {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0 0;
+    font-weight: bold;
+  }
+
+  .card__cat {
+    padding: 5px 17px;
+    background: #2e65fd;
+    display: inline-block;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 10px 25px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .tag {
+    font-size: 14px;
+  }
+
+  .tag p {
+    display: inline;
+    margin: 0;
+    line-height: 40px;
+  }
+
+  .card__tag {
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .card__date {
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .card__btn {
+    margin-left: auto;
+    align-items: center;
+  }
+
+  /* 詳細ページCSS */
+  .detail__ttl {
+    font-size: 40px;
+  }
+
+  .detail__ttl-btn {
+    display: flex;
+    align-items: center;
+    margin: 45px 0 20px 0;
+  }
+
+  .detail__ttl-btn form {
+    margin-right: 10px;
+  }
+
+  .detail__ttl-btn h1 {
+    margin: 0 0 0 20px;
+  }
+
+  .detail__btn {
+    background-color: #fff;
+    border: none;
+    font-size: 35px;
+    cursor: pointer;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 0 10px;
+  }
+
+  .detail-content {
+    display: flex;
+    margin: 30px 45px 0 45px;
+  }
+
+  .detail-main {
+    width: 50%;
+    height: 100%;
+    margin-right: 100px;
+  }
+
+  .detail-sub {
+    margin-left: 50px;
+  }
+
+  .practice__detail {
+    width: 100%;
+  }
+
+  .detail-reserve {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #3574fa;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    color: #fff;
+  }
+
+  .detail-reserve_sub {
+    margin: 0 30px 0px 30px;
+    padding-top: 20px;
+  }
+
+  .detail-datatime {
+    width: 10vw;
+    height: 1.5vw;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    padding-left: 10px;
+  }
+
+  .select-time {
+    width: 30vw;
+    height: 1.5vw;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    padding-left: 10px;
+    cursor: pointer;
+  }
+
+  .select-number {
+    width: 30vw;
+    height: 1.5vw;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    padding-left: 10px;
+    cursor: pointer;
+  }
+
+  .detail-information {
+    background-color: #84aafd;
+    border-radius: 5px;
+    padding: 20px 20px 20px 20px;
+  }
+
+  .detail-information_title {
+    text-align: left;
+  }
+
+  .detail-information_table {
+    line-height: 40px;
+  }
+
+  .detail-information_content {
+    padding-left: 70px;
+  }
+
+  .detail_btn {
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    top: 93%;
+    color: #fff;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    background-color: #2563eb;
+    border: none;
+    border-radius: 5px;
+    padding: 20px 45.5% 20px 45.5%;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #2e65fd;
+  }
+
+  .thanks__card {
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    margin: 100px auto;
+    width: 500px;
+    height: 300px;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+
+  .thanks__tetle {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    padding-top: 80px;
+  }
+
+  .thanks__btn {
+    padding-top: 50px;
+    text-align: center;
+  }
+
+  .favorite-active {
+    color: red;
+  }
+
+  .mypage {
+    margin: 10px 65px 0 65px;
+    display: flex;
+  }
+
+  .mypage_register {
+    width: 50%;
+    padding-top: 50px;
+  }
+
+  .mypage_favorite {
+    width: 50%;
+  }
+
+  .mypage__user-logout {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .mypage_favorite-tetle {
+    padding-top: 7px;
+  }
+
+  .detail-datatime,
+  .select-time,
+  .select-number {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  /* マイページ */
+  .favorite__card-flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .mypage_register-page {
+    width: 80%;
+    background-color: #3574fa;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    color: #fff;
+    margin-bottom: 25px;
+  }
+
+  .mypage_register-situation {
+    padding: 30px 0 0 110px;
+  }
+
+  .detail-table {
+    padding: 15px 0 10px 50px;
+  }
+
+  .mypage_register-logo {
+    position: relative;
+  }
+
+  .mypage_register-logo::before {
+    content: "";
+    position: absolute;
+    margin-top: 50px;
+    left: 50px;
+    background: url(../../storage/time.png) no-repeat;
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    color: #ebebeb;
+  }
+
+  .practice__card {
+    width: 24%;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    margin: 0px 10px 30px 10px;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+
+  .mypage__card {
+    width: 35%;
+    height: 30%;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    margin: 0px 80px 30px 10px;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+
+  .heart-active {
+    filter: invert(29%) sepia(81%) saturate(5967%) hue-rotate(347deg) brightness(97%) contrast(92%);
+  }
+
+  .card__content {
+    padding: 20px 25px;
+  }
+
+  .tag__favorite p {
+    display: inline;
+    margin: 0;
+    line-height: 40px;
+  }
+
+  .card__favorite {
+    padding: 5px 25px 10px 25px;
+  }
+
+  .mypage__user {
+    font-size: 26px;
+    font-weight: bold;
+  }
+
+  .mypage_cancel-btn {
+    background-color: #3574fa;
+    cursor: pointer;
+    border: none;
+  }
+
+  .mypage_cancel {
+    background-color: #3574fa;
+    border: none;
+    padding: 45px 30px 0 0;
+    margin-left: 550px;
+  }
+
+  .mypage_register-flex {
+    display: flex;
+  }
+}
+
+/* デスクトップ向け */
+@media screen and (min-width: 768px) {
+  body {
+    background-color: rgb(243 244 246);
+  }
+
+  .logo {
+    font-size: 30px;
+    color: #2563eb;
+    font-weight: 900;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  .header-nav {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+  }
+
+  .header-search {
+    display: flex;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 10px 10px;
+    background-color: #fff;
+  }
+
+  .header {
+    margin: 30px 45px 0 45px;
+    display: flex;
+  }
+
+  .select-area {
+    padding: 10px 20px 5px 5px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-right: 3px solid #ebebeb;
+  }
+
+  .select-genre {
+    padding: 10px 15px 5px 5px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-right: 3px solid #ebebeb;
+  }
+
+  .select-text {
+    padding: 10px 150px 5px 50px;
+    font-size: 16px;
+    border: none;
+  }
+
+  .select-icon {
+    position: relative;
+  }
+
+  .select-icon::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    background: url(../../storage/search.png) no-repeat;
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    color: #ebebeb;
+    transform: translate(0, -50%);
+  }
+
+  /* ここから下がハンバーガーメニューに関するCSS */
+
+  /* チェックボックスを非表示にする */
+  .drawer_hidden {
+    display: none;
+  }
+
+  /* ハンバーガーアイコンの設置スペース */
+  .drawer_open {
+    display: flex;
+    height: 60px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+    /* 重なり順を一番上にする */
+    cursor: pointer;
+  }
+
+  /* ハンバーガーメニューのアイコン */
+  .drawer_open span,
+  .drawer_open span:before,
+  .drawer_open span:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    color: #ffffff;
+    background-color: #2563eb;
+    transition: 0.5s;
+    position: absolute;
+  }
+
+  /* 三本線の一番上の棒の位置調整 */
+  .drawer_open span:before {
+    bottom: 8px;
+  }
+
+  /* 三本線の一番下の棒の位置調整 */
+  .drawer_open span:after {
+    top: 8px;
+  }
+
+  /* アイコンがクリックされたら真ん中の線を透明にする */
+  #drawer_input:checked~.drawer_open span {
+    background: rgba(255, 255, 255, 0);
+  }
+
+  /* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+  #drawer_input:checked~.drawer_open span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+  }
+
+  #drawer_input:checked~.drawer_open span::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  /* メニューのデザイン*/
+  .nav_content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    /* メニューを画面の外に飛ばす */
+    z-index: 99;
+    background: #fff;
+    transition: .5s;
+  }
+
+  /* メニュー黒ポチを消す */
+  .nav_list {
+    list-style: none;
+    color: #2563eb;
+    text-align: center;
+    margin: 10rem;
+    font-size: 2.5rem;
+    font-weight: 3rem;
+  }
+
+  /* アイコンがクリックされたらメニューを表示 */
+  #drawer_input:checked~.nav_content {
+    left: 0;
+    /* メニューを画面に入れる */
+  }
+
+  /* カード表示 */
+  .flex__item {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px 35px 30px 45px;
+  }
+
+  .detail__img img {
+    width: 100%;
+  }
+
+  .card__img img {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .card__content {
+    padding: 20px 25px;
+  }
+
+  .card__ttl {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0 0;
+    font-weight: bold;
+  }
+
+  .card__cat {
+    padding: 5px 17px;
+    background: #2e65fd;
+    display: inline-block;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 10px 25px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .tag {
+    font-size: 14px;
+  }
+
+  .tag p {
+    display: inline;
+    margin: 0;
+    line-height: 40px;
+  }
+
+  .card__tag {
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .card__date {
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .card__btn {
+    margin-left: auto;
+    align-items: center;
+  }
+
+  /* 詳細ページCSS */
+  .detail__ttl {
+    font-size: 40px;
+  }
+
+  .detail__ttl-btn {
+    display: flex;
+    align-items: center;
+    margin: 45px 0 20px 0;
+  }
+
+  .detail__ttl-btn form {
+    margin-right: 10px;
+  }
+
+  .detail__ttl-btn h1 {
+    margin: 0 0 0 20px;
+  }
+
+  .detail__btn {
+    background-color: #fff;
+    border: none;
+    font-size: 35px;
+    cursor: pointer;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 0 10px;
+  }
+
+  .detail-content {
+    display: flex;
+    margin: 30px 45px 0 45px;
+  }
+
+  .detail-main {
+    width: 50%;
+    height: 100%;
+    margin-right: 100px;
+  }
+
+  .detail-sub {
+    margin-left: 50px;
+  }
+
+  .practice__detail {
+    width: 100%;
+  }
+
+  .detail-reserve {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #3574fa;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    color: #fff;
+  }
+
+  .detail-reserve_sub {
+    margin: 0 30px 0px 30px;
+    padding-top: 20px;
+  }
+
+  .detail-datatime {
+    width: 10vw;
+    height: 1.5vw;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    padding-left: 10px;
+  }
+
+  .select-time {
+    width: 30vw;
+    height: 1.5vw;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    padding-left: 10px;
+    cursor: pointer;
+  }
+
+  .select-number {
+    width: 30vw;
+    height: 1.5vw;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    padding-left: 10px;
+    cursor: pointer;
+  }
+
+  .detail-information {
+    background-color: #84aafd;
+    border-radius: 5px;
+    padding: 20px 20px 20px 20px;
+  }
+
+  .detail-information_title {
+    text-align: left;
+  }
+
+  .detail-information_table {
+    line-height: 40px;
+  }
+
+  .detail-information_content {
+    padding-left: 70px;
+  }
+
+  .detail_btn {
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    top: 93%;
+    color: #fff;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    background-color: #2563eb;
+    border: none;
+    border-radius: 5px;
+    padding: 20px 45.5% 20px 45.5%;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #2e65fd;
+  }
+
+  .thanks__card {
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    margin: 100px auto;
+    width: 500px;
+    height: 300px;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+
+  .thanks__tetle {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    padding-top: 80px;
+  }
+
+  .thanks__btn {
+    padding-top: 50px;
+    text-align: center;
+  }
+
+  .favorite-active {
+    color: red;
+  }
+
+  .mypage {
+    margin: 10px 65px 0 65px;
+    display: flex;
+  }
+
+  .mypage_register {
+    width: 50%;
+    padding-top: 50px;
+  }
+
+  .mypage_favorite {
+    width: 50%;
+  }
+
+  .mypage__user-logout {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .mypage_favorite-tetle {
+    padding-top: 7px;
+  }
+
+  .detail-datatime,
+  .select-time,
+  .select-number {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  /* マイページ */
+  .favorite__card-flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .mypage_register-page {
+    width: 80%;
+    background-color: #3574fa;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    color: #fff;
+    margin-bottom: 25px;
+  }
+
+  .mypage_register-situation {
+    padding: 30px 0 0 110px;
+  }
+
+  .detail-table {
+    padding: 15px 0 10px 50px;
+  }
+
+  .mypage_register-logo {
+    position: relative;
+  }
+
+  .mypage_register-logo::before {
+    content: "";
+    position: absolute;
+    margin-top: 50px;
+    left: 50px;
+    background: url(../../storage/time.png) no-repeat;
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    color: #ebebeb;
+  }
+
+  .practice__card {
+    width: 24%;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    margin: 0px 10px 30px 10px;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+
+  .mypage__card {
+    width: 35%;
+    height: 30%;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    margin: 0px 80px 30px 10px;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+
+  .heart-active {
+    filter: invert(29%) sepia(81%) saturate(5967%) hue-rotate(347deg) brightness(97%) contrast(92%);
+  }
+
+  .card__content {
+    padding: 20px 25px;
+  }
+
+  .tag__favorite p {
+    display: inline;
+    margin: 0;
+    line-height: 40px;
+  }
+
+  .card__favorite {
+    padding: 5px 25px 10px 25px;
+  }
+
+  .mypage__user {
+    font-size: 26px;
+    font-weight: bold;
+  }
+
+  .mypage_cancel-btn {
+    background-color: #3574fa;
+    cursor: pointer;
+    border: none;
+  }
+
+  .mypage_cancel {
+    background-color: #3574fa;
+    border: none;
+    padding: 45px 30px 0 0;
+    margin-left: 550px;
+  }
+
+  .mypage_register-flex {
+    display: flex;
+  }
 }

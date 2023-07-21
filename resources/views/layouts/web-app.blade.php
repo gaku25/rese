@@ -16,9 +16,13 @@
 
 <body>
     <section class="app">
-    <div class="app-title">@yield('title')</div>
+    <div class="app-title">
+        @yield('title')
+    </div>
     <br>
-    <div class="app_content">@yield('content')</div>
+    <div class="app_content">
+        @yield('content')
+    </div>
     </section>
 </body>
 

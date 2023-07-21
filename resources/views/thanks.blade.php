@@ -38,7 +38,9 @@
         会員登録ありがとうございます
     </div>    
     <form class="thanks__btn" action="/login" method="get">
-        <button class="card__cat" name="" value="">ログインする</button>
+        <button class="card__cat" name="" value="">
+            ログインする
+        </button>
     </form>
     </div>
 @endsection

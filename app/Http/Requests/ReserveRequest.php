@@ -24,10 +24,19 @@ class ReserveRequest extends FormRequest
     public function rules()
     {
         return [
-            'restaurant_id' => 'required',
-            'date' => 'required',
-            'time' => 'required',
-            'number' => 'required',
+            'date' => 'required|date_format:Y-m-d',
+            'time' => 'required|date_format:H:i',
+            'number' => 'required|integer',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'date.required' => '予約日を選択してください。',
+            'time.required' => '予約時間を選択してください。',
+            'number.required' => '予約人数を選択してください。',
+            'number.integer' => '有効な人数を選択してください。',
         ];
     }
 }
