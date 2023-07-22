@@ -26,6 +26,7 @@ Route::get('/dashboard', function () {
 Route::get('/', [StoreController::class, 'index'])->name('index');
 Route::post('/', [StoreController::class, 'index']);
 Route::get('/detail/{id}', [StoreController::class, 'detail'])->name('store.detail');
+Route::post('/done', [ReserveController::class, 'done'])->middleware('auth')->name('store.done');
 Route::post('/done', [ReserveController::class, 'done'])->name('store.done');
 Route::get('/search', [StoreController::class, 'search'])->name('store.search');
 Route::post('/reserve/delete/{id}', [ReserveController::class, 'delete'])->name('reserve.delete');

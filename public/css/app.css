@@ -47,6 +47,7 @@ html {
 body {
   margin: 0; /* 1 */
   line-height: inherit; /* 2 */
+  background-color: rgb(243 244 246);
 }
 
 /*
@@ -1393,7 +1394,7 @@ select {
   }
 
   .sm\:justify-center {
-    justify-content: center;
+    margin-top: 150px;
   }
 
   .sm\:justify-between {
@@ -1461,6 +1462,9 @@ select {
   z-index: 100;
   /* 重なり順を一番上にする */
   cursor: pointer;
+  background-color: #2563eb;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
 }
 
 /* ハンバーガーメニューのアイコン */
@@ -1470,22 +1474,24 @@ select {
   content: '';
   display: block;
   height: 3px;
-  width: 25px;
+  width: 35px;
   border-radius: 3px;
   color: #ffffff;
-  background-color: #2563eb;
+  background-color: #ffffff;
   transition: 0.5s;
   position: absolute;
 }
 
 /* 三本線の一番上の棒の位置調整 */
 .drawer_open span:before {
-  bottom: 8px;
+  bottom: 10px;
+  width: 18px;
 }
 
 /* 三本線の一番下の棒の位置調整 */
 .drawer_open span:after {
-  top: 8px;
+  top: 10px;
+  width: 10px;
 }
 
 /* アイコンがクリックされたら真ん中の線を透明にする */
@@ -1496,11 +1502,13 @@ select {
 /* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
 #drawer_input:checked~.drawer_open span::before {
   bottom: 0;
+  width: 35px;
   transform: rotate(45deg);
 }
 
 #drawer_input:checked~.drawer_open span::after {
   top: 0;
+  width: 35px;
   transform: rotate(-45deg);
 }
 
@@ -1537,6 +1545,7 @@ select {
   font-size: 30px;
   color: #2563eb;
   font-weight: 900;
+  padding-left: 15px;
 }
 
 .header-nav{
@@ -1550,6 +1559,15 @@ select {
   background-color: #2563eb;
   color: #fff;
   padding: 20px;
+}
+
+.login_message{
+  background-color: rgb(243 244 246);
+  text-align: center;
+  font-size: 26px;
+  color: red;
+  padding-top: 100px;
+  font-weight: bold;
 }
 
 .border-text{

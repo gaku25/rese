@@ -8,7 +8,10 @@
         <input id="drawer_input" class="drawer_hidden" type="checkbox">
     
         <!-- ハンバーガーアイコン -->
-        <label for="drawer_input" class="drawer_open"><span></span></label>
+        <label for="drawer_input" class="drawer_open">
+            <span>                
+            </span>
+        </label>
     
         <!-- メニュー -->
         <nav class="nav_content">
@@ -76,7 +79,8 @@
                         </select>
                 </div>
                 <div class="header-search_text">
-                    <span class="select-icon"></span>
+                    <span class="select-icon">
+                    </span>
                     <input type="text" name="keyword" class="select-text" placeholder="Search...">
                 </div>
                 </form>

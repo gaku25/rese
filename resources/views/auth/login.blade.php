@@ -21,6 +21,12 @@
         </div>
     </div>
 
+@if (session('message'))
+    <div class="login_message">
+        {{ session('message') }}
+    </div>
+@endif
+
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -61,4 +67,5 @@
             </div>
         </form>
     </x-auth-card>
+
 </x-guest-layout>
