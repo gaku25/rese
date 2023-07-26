@@ -28,6 +28,6 @@ class MypageController extends Controller
             'reserves' => $reserves,
             'favorites' => $favorites,
         ];
-        return view('mypage', $param);
+    return view('mypage', $param);
     }
 }

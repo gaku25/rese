@@ -17,14 +17,4 @@ class ReserveManagement extends Model
         'store_id',
     ];
 
-
-    // public function user()
-    // {
-    //     return $this->belongsTo(User::class, 'user_id','id');
-    // }
-
-    // public function reserve()
-    // {
-    //     return $this->belongsTo(Reserve::class, 'reserve_id','id');
-    // }
 }

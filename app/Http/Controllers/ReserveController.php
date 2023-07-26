@@ -20,7 +20,6 @@ class ReserveController extends Controller
             'time' => 'required',
             'number' => 'required',
         ]);
-
         $user = Auth::user();
         $reserve = new Reserve();
         $reserve->user_id = $user->id;
@@ -37,9 +36,8 @@ class ReserveController extends Controller
 {
     if (!Auth::check()) {
         Session::flash('message', '予約を行うにはログインしてください。');
-        return redirect()->route('login');
+    return redirect()->route('login');
     }
-
         $user = Auth::user();
         $reserve = new Reserve();
         $reserve->user_id = $user->id;
@@ -48,7 +46,6 @@ class ReserveController extends Controller
         $reserve->time = $request->time;
         $reserve->number = $request->number;
         $reserve->save();
-
     return view('done')->with('message', '予約が完了しました。');
     }
 

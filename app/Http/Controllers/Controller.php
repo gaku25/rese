@@ -14,7 +14,6 @@ class Controller extends BaseController
 
     public function __construct()
     {
-        // ログインしているかどうかを全てのコントローラーメソッドでチェック
         $this->middleware(function ($request, $next) {
             $loggedIn = Auth::check();
             view()->share('loggedIn', $loggedIn);

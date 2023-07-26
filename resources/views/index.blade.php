@@ -2,18 +2,12 @@
 
 @section('title')
     <header class="header">
-    <!-- ハンバーガーメニュー部分 -->
     <div class="header-nav">
-        <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
         <input id="drawer_input" class="drawer_hidden" type="checkbox">
-    
-        <!-- ハンバーガーアイコン -->
         <label for="drawer_input" class="drawer_open">
             <span>                
             </span>
         </label>
-    
-        <!-- メニュー -->
         <nav class="nav_content">
             <ul class="nav_list">
             <li class="nav_item">
@@ -46,8 +40,6 @@
             @endif
             </ul>
         </nav>
-        <!-- ヘッダーロゴ -->
-
         <div class="logo">
             Rese
         </div>
@@ -126,8 +118,6 @@
     function toggleFavorite(storeId, url, isFavorite, redirectUrl) {
     const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     const heartButton = document.getElementById('heart-' + storeId);
-
-    // お気に入り追加/削除のAJAXリクエストを送信
     fetch(url, {
         method: 'POST',
         headers: {
@@ -139,13 +129,8 @@
     })
     .then(response => response.json())
     .then(data => {
-        // レスポンスに応じた処理を実装
         console.log(data.message);
-
-        // ハートボタンのスタイルを変更
         heartButton.classList.toggle('heart-active', data.isFavorite);
-
-        // マイページへのリダイレクト
         if (data.redirect) {
             window.location.href = redirectUrl;
         }
