@@ -46,7 +46,7 @@ class ReserveController extends Controller
         $reserve->time = $request->time;
         $reserve->number = $request->number;
         $reserve->save();
-    return view('done')->with('message', '予約が完了しました。');
+    return view('done');
     }
 
     public function delete(Request $request, $id)

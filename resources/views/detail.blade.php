@@ -205,11 +205,16 @@
 const dateInput = document.getElementById('date-input');
 const timeSelect = document.getElementById('time-select');
 const numberSelect = document.getElementById('number-select');
+const today = new Date();
 
 dateInput.addEventListener('input', function() {
-    const date = dateInput.value;
+    const selectedDate = new Date(dateInput.value);
     const dateContent = document.getElementById('data-content');
-    dateContent.textContent = date;
+    dateContent.textContent = dateInput.value;
+
+    if (selectedDate < today) {
+        dateInput.value = '';
+    }
 });
 
 timeSelect.addEventListener('change', function() {

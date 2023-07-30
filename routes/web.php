@@ -13,7 +13,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/', [StoreController::class, 'index'])->name('index');
-Route::post('/', [StoreController::class, 'index']);
 Route::get('/detail/{id}', [StoreController::class, 'detail'])->name('store.detail');
 Route::get('/search', [StoreController::class, 'search'])->name('store.search');
 Route::get('/login', [StoreController::class, 'index'])->middleware(['guest'])->name('login');
@@ -24,8 +23,7 @@ Route::post('/reserve', [ReserveController::class, 'store'])->middleware('auth')
 
 Route::post('/favorites/add', [FavoriteController::class, 'add'])->middleware('auth')->name('favorites.add');
 Route::post('/favorites/remove', [FavoriteController::class, 'remove'])->middleware('auth')->name('favorites.remove');
-// Route::post('/favorites/toggle/{store_id}', [FavoriteController::class, 'toggle'])->middleware('auth')->name('favorites.toggle');
-Route::match(['get', 'post'], '/favorites/toggle/{store_id}', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
+Route::match(['get', 'post'], '/favorites/toggle/{store_id}', [FavoriteController::class, 'toggle'])->middleware('auth')->name('favorites.toggle');
 
 Route::get('/register', [RegisteredUserController::class, 'create'])->middleware(['guest'])->name('register');
 Route::post('/register', [RegisteredUserController::class, 'store'])->middleware(['guest'])->name('register');

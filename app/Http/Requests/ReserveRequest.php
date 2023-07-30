@@ -24,7 +24,7 @@ class ReserveRequest extends FormRequest
     public function rules()
     {
         return [
-            'date' => 'required|date_format:Y-m-d',
+            'date' => 'required|date_format:Y-m-d|after_or_equal:today',
             'time' => 'required|date_format:H:i',
             'number' => 'required|integer',
         ];
@@ -34,6 +34,7 @@ class ReserveRequest extends FormRequest
     {
         return [
             'date.required' => '予約日を選択してください。',
+            'date.after_or_equal' => '有効な予約日を選択してください。',
             'time.required' => '予約時間を選択してください。',
             'number.required' => '予約人数を選択してください。',
             'number.integer' => '有効な人数を選択してください。',
