@@ -86,7 +86,7 @@
                         <h1 class="detail-title">
                             予約
                         </h1>
-                        <input id="date-input" type="date" class="detail-datatime" name="date" required> 
+                        <input id="date-input" type="date" class="detail-datatime" name="date" required>
                         @error('date')
                         <div class="error-message">
                             {{ $message }}
@@ -207,13 +207,15 @@ const timeSelect = document.getElementById('time-select');
 const numberSelect = document.getElementById('number-select');
 const today = new Date();
 
+dateInput.setAttribute('min', formatDate(today));
+
 dateInput.addEventListener('input', function() {
     const selectedDate = new Date(dateInput.value);
     const dateContent = document.getElementById('data-content');
     dateContent.textContent = dateInput.value;
 
     if (selectedDate < today) {
-        dateInput.value = '';
+        dateInput.value = formatDate(today); 
     }
 });
 
@@ -228,6 +230,13 @@ numberSelect.addEventListener('change', function() {
     const numberContent = document.getElementById('number-content');
     numberContent.textContent = number;
 });
+
+function formatDate(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
 </script>
 
 @endsection

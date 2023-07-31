@@ -104,10 +104,16 @@
             <button class="card__cat" name="id" value="{{ $store->id }}" onclick="location.href='{{ route('store.detail', ['id' => $store->id, 'return_to' => 'index']) }}'">
                 詳しく見る
             </button>
-                <a href="#" onclick="event.preventDefault(); toggleFavorite({{ $store->id }}, '{{ route('favorites.toggle', ['store_id' => $store->id]) }}', {{ $store->isFavorite ? 'true' : 'false' }}, '{{ route('mypage') }}')">
+            @if (Auth::check())
+                <a href="#" onclick="toggleFavorite({{ $store->id }}, '{{ route('favorites.toggle', ['store_id' => $store->id]) }}', {{ $store->isFavorite ? 'true' : 'false' }}, '{{ route('mypage') }}')">
                     <img id="heart-{{ $store->id }}" class="card__heart{{ $store->isFavorite ? ' heart-active' : '' }}" src="{{ asset('storage/heart.png') }}" alt="いいね" style="float: right;"/>
                 </a>
-        </form>
+            @else
+                <a href="#">
+                    <img id="heart-{{ $store->id }}" class="card__heart{{ $store->isFavorite ? ' heart-active' : '' }}" src="{{ asset('storage/heart.png') }}" alt="いいね" style="float: right;"/>
+                </a>
+            @endif
+    </form>
         </div>
     </div>
     </div>
@@ -116,29 +122,33 @@
         
 <script>
     function toggleFavorite(storeId, url, isFavorite, redirectUrl) {
-    const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-    const heartButton = document.getElementById('heart-' + storeId);
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'X-CSRF-TOKEN': token,
-            'X-Requested-With': 'XMLHttpRequest',
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ store_id: storeId }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data.message);
-        heartButton.classList.toggle('heart-active', data.isFavorite);
-        if (data.redirect) {
-            window.location.href = redirectUrl;
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-}
-</script>
+        const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        const heartButton = document.getElementById('heart-' + storeId);
 
+        if (!isFavorite && !{{ Auth::check() ? 'true' : 'false' }}) {
+            return;
+        }
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': token,
+                'X-Requested-With': 'XMLHttpRequest',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ store_id: storeId }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.message);
+            heartButton.classList.toggle('heart-active', data.isFavorite);
+            if (data.redirect) {
+                window.location.href = redirectUrl;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+</script>
 @endsection
